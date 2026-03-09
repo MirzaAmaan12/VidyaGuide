@@ -12,13 +12,20 @@ export default function LoginPage({ onLogin }) {
     setError('')
 
     try {
+      if (!email || !password) {
+        setError('Please enter both email and password')
+        setLoading(false)
+        return
+      }
+
       // API call would go here
       // const response = await api.post('/auth/login', { email, password })
       // localStorage.setItem('token', response.data.token)
       
       // For now, simulate login
       setTimeout(() => {
-        localStorage.setItem('token', 'demo-token')
+        localStorage.setItem('authToken', 'demo-token-' + Date.now())
+        localStorage.setItem('userEmail', email)
         onLogin()
       }, 500)
     } catch (err) {
@@ -32,11 +39,15 @@ export default function LoginPage({ onLogin }) {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-lg shadow-medium p-8 fade-in">
-          {/* Logo */}
+          {/* Logo Section */}
           <div className="text-center mb-8">
-            <div className="text-4xl mb-2">🎓</div>
-            <h1 className="text-3xl font-bold text-gray-900">VidyaMitra</h1>
-            <p className="text-gray-600 mt-1">AI-Powered Career Intelligence</p>
+            <img 
+              src="/assets/logo.png" 
+              alt="VidyaMitra Logo" 
+              className="logo"
+            />
+            <h1 className="text-3xl font-bold text-gray-900 mt-4">VidyaMitra</h1>
+            <p className="text-gray-600 mt-2 font-medium">AI-Powered Career Mentor</p>
           </div>
 
           {/* Error Message */}
