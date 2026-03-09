@@ -42,7 +42,7 @@ export default function LoginPage({ onLogin }) {
           {/* Logo Section */}
           <div className="text-center mb-8">
             <img 
-              src="/assets/logo.png" 
+              src="/assets/logo.svg" 
               alt="VidyaMitra Logo" 
               className="logo"
             />

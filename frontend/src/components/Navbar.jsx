@@ -36,7 +36,7 @@ export default function Navbar({ onLogout }) {
             title="Go to Dashboard"
           >
             <img 
-              src="/assets/logo.png" 
+              src="/assets/logo.svg" 
               alt="VidyaMitra Logo" 
               className="nav-logo"
             />
